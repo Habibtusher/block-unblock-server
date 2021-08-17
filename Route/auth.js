@@ -51,9 +51,30 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.patch("/add-block/:email", async (req, res) => {
+  console.log(req.body.bEmail);
+  console.log("server received", req.params.email);
+  User.updateOne(
+    {email :req.params.email},
+    {$push: {blockedUser: req.body.bEmail}})
+  .then(result => {
+    if(result.modifiedCount > 0){
+      res.send(true);
+    }
+  })
+  User.updateOne(
+    {email :req.body.bEmail},
+    {$push: {blockedBy: req.params.email}})
+  .then(result => {
+    if(result.modifiedCount > 0){
+      res.send(true);
+    }
+  })
+
+})
+
 router.get("/allUser", async (req, res) => {
   try {
-    
     User.find({})
       .then((result) => {
         res.send(result)
@@ -63,6 +84,17 @@ router.get("/allUser", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+router.get("/all-user/:email", async (req, res) => {
+  console.log("search block",req.params.email);
+  try {
+    User.findOne({email: req.params.email})
+      .then((result) => {
+        res.send(result)
+      })
+  } catch (err) {
+    console.log(error)
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

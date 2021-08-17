@@ -11,18 +11,26 @@ const UserSchema = new mongoose.Schema(
       required: true,
       validate: async (email) => {
         try {
-            const result = await userModel.findOne({ email: email })
-            if (result) throw new Error("duplicity detected: email :" + email);
+          const result = await userModel.findOne({ email: email })
+          if (result) throw new Error("duplicity detected: email :" + email);
         } catch (error) {
-            throw new Error(error);
+          throw new Error(error);
         }
-    }
+      }
     },
     password: {
       type: String,
     },
     name: {
       type: String
+    },
+    blockedUser: {
+      type: Array,
+      default: [],
+    },
+    blockedBy: {
+      type: Array,
+      default: [],
     }
   },
 
@@ -31,14 +39,14 @@ const UserSchema = new mongoose.Schema(
 UserSchema.statics.isThisEmailUse = async function (email) {
   if (!email) throw new Error('Invalid Email')
   try {
-      const user = await this.findOne({ email })
-      if (user) return false
+    const user = await this.findOne({ email })
+    if (user) return false
 
-      return true
+    return true
   } catch (error) {
-      console.log('Error inside isThisEmailUse', error.message)
-      return false
+    console.log('Error inside isThisEmailUse', error.message)
+    return false
   }
 }
 const userModel = mongoose.model("user", UserSchema);
-module.exports= userModel;
+module.exports = userModel;

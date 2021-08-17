@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors")
 const dotenv = require("dotenv");
-
+const bodyParser = require('body-parser')
 
 
 dotenv.config();
@@ -22,8 +22,8 @@ mongoose.connect(url, {
   useUnifiedTopology: true,
   useCreateIndex: true,
 })
-  .then(() => console.log("Database connected!"))
-  .catch((err) => console.log(err));
+  // .then(() => console.log("Database connected!"))
+  // .catch((err) => console.log(err));
 
   const authRoute = require("./Route/auth");
   const blockRoute = require("./Route/block")
@@ -34,6 +34,9 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(bodyParser.json());
+
+
 
 app.use("/auth", authRoute);
 app.use("/block",blockRoute)
