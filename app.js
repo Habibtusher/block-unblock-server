@@ -26,7 +26,7 @@ mongoose.connect(url, {
   // .catch((err) => console.log(err));
 
   const authRoute = require("./Route/auth");
-  const blockRoute = require("./Route/block")
+
 
 //middleware
 
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 
 
 app.use("/auth", authRoute);
-app.use("/block",blockRoute)
+
 
 
 app.get('/', (req, res) => {

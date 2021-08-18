@@ -24,14 +24,10 @@ const UserSchema = new mongoose.Schema(
     name: {
       type: String
     },
-    blockedUser: {
+    blockList: {
       type: Array,
       default: [],
     },
-    blockedBy: {
-      type: Array,
-      default: [],
-    }
   },
 
 );
