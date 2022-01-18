@@ -1,0 +1,52 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/home/habib/.nvm/versions/node/v14.18.0/bin/node',
+1 verbose cli   '/home/habib/.nvm/versions/node/v14.18.0/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   '--json',
+1 verbose cli   'mongoose',
+1 verbose cli   'description',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   'homepage',
+1 verbose cli   'version'
+1 verbose cli ]
+2 info using npm@3.10.10
+3 info using node@v14.18.0
+4 silly mapToRegistry name mongoose
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry data Result {
+7 silly mapToRegistry   raw: 'mongoose',
+7 silly mapToRegistry   scope: null,
+7 silly mapToRegistry   escapedName: 'mongoose',
+7 silly mapToRegistry   name: 'mongoose',
+7 silly mapToRegistry   rawSpec: '',
+7 silly mapToRegistry   spec: 'latest',
+7 silly mapToRegistry   type: 'tag'
+7 silly mapToRegistry }
+8 silly mapToRegistry uri https://registry.npmjs.org/mongoose
+9 verbose request uri https://registry.npmjs.org/mongoose
+10 verbose request no auth needed
+11 info attempt registry request try #1 at 11:44:04 PM
+12 verbose request id d0c509b94df3c30b
+13 http request GET https://registry.npmjs.org/mongoose
+14 info retry will retry, error on last attempt: Error: getaddrinfo EAI_AGAIN registry.npmjs.org
+15 info attempt registry request try #2 at 11:44:24 PM
+16 http request GET https://registry.npmjs.org/mongoose
+17 info retry will retry, error on last attempt: Error: getaddrinfo EAI_AGAIN registry.npmjs.org
+18 info attempt registry request try #3 at 11:45:34 PM
+19 http request GET https://registry.npmjs.org/mongoose
+20 verbose stack Error: getaddrinfo EAI_AGAIN registry.npmjs.org
+20 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26)
+21 verbose cwd /media/habib/WORK STATION/React/Job Assignment/Assignment/server
+22 error Linux 5.11.0-41-generic
+23 error argv "/home/habib/.nvm/versions/node/v14.18.0/bin/node" "/home/habib/.nvm/versions/node/v14.18.0/bin/npm" "view" "--json" "mongoose" "description" "dist-tags.latest" "homepage" "version"
+24 error node v14.18.0
+25 error npm  v3.10.10
+26 error code EAI_AGAIN
+27 error errno -3001
+28 error syscall getaddrinfo
+29 error getaddrinfo EAI_AGAIN registry.npmjs.org
+30 error If you need help, you may report this error at:
+30 error     <https://github.com/npm/npm/issues>
+31 verbose exit [ -3001, true ]

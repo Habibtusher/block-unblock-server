@@ -49,6 +49,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// add to block-list
 router.patch("/add-block/:email", async (req, res) => {
   console.log(req.body.bEmail);
   console.log("server received", req.params.email);
@@ -70,7 +71,7 @@ router.patch("/add-block/:email", async (req, res) => {
     })
 
 })
-
+//view all-user
 router.get("/allUser/:email", async (req, res) => {
 
   console.log("server get 1", req.params);
@@ -86,7 +87,7 @@ router.get("/allUser/:email", async (req, res) => {
   
 });
 
-
+//view all block-list
 router.get("/all-block/:email", async (req, res) => {
   console.log("search block", req.params.email);
   try {
